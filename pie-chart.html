@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="google" content="notranslate"> -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="icon" href="favicon.png" type="image/png"> -->
+    <title></title>
+  </head>
+  <body>
+
+    <div class="pie-chart">
+      <div class="body-container">
+        <div class="outer-table">
+          <div class="left-side">
+            <div class="pie-chart__chart">
+              <div class="pie-chart__chart-inner">
+                <canvas id="piechart" width="400" height="400"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="right-side">
+            <h1>WHEN MIGHT YOU CONSIDER CHANGING YOUR SOFTWARE SYSTEM?</h1>
+            <ul>
+              <li>A. Response: 2-4 months</li>
+              <li>B. Response: 4-6 months</li>
+              <li>C. Response: 6-12 months</li>
+              <li>D. Response: 1 year+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+    <script src="js/chartPieceLabel.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onresize = function(){ location.reload(); }
+      var ctx = document.getElementById("piechart")
+      var myPieChart = new Chart(ctx,
+        {
+          type: 'pie',
+          data: {
+            labels: ['2-4 months', '4-6 months', '6-12 months', '1 year+'],
+            datasets: [{
+              label: 'Responses',
+              data: [10, 20, 30, 40],
+              backgroundColor: [
+                'rgba(76, 79, 83, 1)',
+                'rgba(204, 176, 66, 1)',
+                'rgba(212, 129, 32, 1)',
+                'rgba(80, 51, 116, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            tooltips: {
+              // enabled: false
+            },
+            responsive: true,
+            legend: {
+              display: false
+            },
+            pieceLabel: {
+              // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
+              render: 'percentage',
+              fontSize: 30,
+              fontColor: 'white'
+            }
+          }
+        }
+      )
+
+    </script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

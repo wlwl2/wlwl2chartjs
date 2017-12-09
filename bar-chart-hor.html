@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="google" content="notranslate"> -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="icon" href="favicon.png" type="image/png"> -->
+    <title></title>
+  </head>
+  <body>
+
+    <div class="bar-chart">
+      <div class="body-container">
+        <div class="outer-table">
+          <div class="left-side">
+            <h1>BENEFITS DELIVERY STRATEGY</h1>
+            <p>
+              You responded XXXXXXXXXXXX (List of the challenges they picked).
+              See what issues your peers are working through in the graph.
+            </p>
+          </div>
+          <div class="right-side horizontal">
+            <div class="bar-chart__chart">
+              <div class="white-line-hor">
+                <div class="bar">
+
+                </div>
+              </div>
+              <div class="bar-chart__chart-inner">
+                <canvas id="barchart" height="260px"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+    <script>
+      window.onresize = function(){ location.reload(); }
+      var ctx = document.getElementById("barchart")
+      var myChart = new Chart(ctx, {
+          type: 'horizontalBar',
+          data: {
+              labels: ["Issue 1", "Issue 2", "Issue 3", "Issue 4", "Issue 5"],
+              datasets: [{
+                  label: 'issues',
+                  data: [25, 50, 75, 40, 100],
+                  backgroundColor: [
+                      'rgba(80, 51, 116, 1)',
+                      'rgba(212, 129, 32, 1)',
+                      'rgba(142, 63, 40, 1)',
+                      'rgba(76, 79, 83, 1)',
+                      'rgba(0, 147, 166, 1)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 255, 255, 1)',
+                      'rgba(255, 255, 255, 1)',
+                      'rgba(255, 255, 255, 1)',
+                      'rgba(255, 255, 255, 1)',
+                      'rgba(255, 255, 255, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+            // responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                display: false,
+                ticks: {
+                    beginAtZero:true,
+                    display: false
+                },
+                gridLines: {
+                  display: false
+                }
+              }],
+              xAxes: [{
+                barPercentage: 0.8,
+                ticks: {
+                  beginAtZero:true,
+                  display: false
+                },
+                gridLines: {
+                  display: false,
+                  drawBorder: false,
+                  // zeroLineWidth: 1,
+                  // zeroLineColor: 'rgba(255, 255, 255, 1)'
+                  // borderDash: [0.5],
+                  // borderDashOffset: 10
+                  // lineWidth: 3,
+                }
+              }]
+            }
+          }
+      })
+      </script>
+
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
